@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
+            $table->id(); // primary key (auto-incrementing) (big integer)
             $table->string('title');
             $table->string('body')->nullable();
             $table->string('image_url');

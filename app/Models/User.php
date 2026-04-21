@@ -12,7 +12,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 #[Fillable(['name', 'email', 'password'])]
-#[Hidden(['password', 'remember_token'])]
+#[Hidden(['password', 'remember_token','created_at','updated_at'])]
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
@@ -30,6 +30,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+        // define relationship with posts
+        public function posts(){
+            return $this->hasMany(Post::class);
+        }
 
     // define 
 }

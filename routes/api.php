@@ -31,7 +31,7 @@ Route::post('logout',function(){
 /// middleware and controller 
 
 // POST ROUTES
-Route::get('posts',[PostController::class,'index']);
-Route::post('posts',[PostController::class,'store']);
+Route::get('posts',[PostController::class,'index']); // public route to get all posts
+Route::post('posts',[PostController::class,'store'])->middleware('auth:sanctum'); // protected route to create a new post
 Route::post('posts/{id}',[PostController::class,'update']); // replace  
 Route::delete('posts/{id}',[PostController::class,'destroy']);

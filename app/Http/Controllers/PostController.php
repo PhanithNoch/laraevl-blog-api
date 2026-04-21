@@ -29,6 +29,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'user_id' => 'required|exists:users,id'
         ]);
         $data = $request->all();
 
